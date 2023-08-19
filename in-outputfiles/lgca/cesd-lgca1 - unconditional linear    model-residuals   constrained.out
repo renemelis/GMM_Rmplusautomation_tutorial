@@ -1,0 +1,298 @@
+Mplus VERSION 8.4
+MUTHEN & MUTHEN
+05/29/2023   9:42 PM
+
+INPUT INSTRUCTIONS
+
+
+  TITLE: CESD-LGCA1 - unconditional linear    model-residuals   constrained
+  DATA: FILE IS "Z:/mplusautomationtutorial/datfiles/pq_mmse_cesd.dat";
+  VARIABLE:   NAMES ARE   ID
+  MMSE_0 MMSE_1 MMSE_2 MMSE_3 MMSE_4 MMSE_5 MMSE_6 MMSE_7 MMSE_8
+  CESD_0 CESD_1 CESD_2 CESD_3 CESD_4 CESD_5 CESD_6 CESD_7 CESD_8;
+
+  MISSING ARE .;
+
+  USEVARIABLES ARE CESD_0 CESD_1 CESD_2
+      CESD_3 CESD_4 CESD_5
+      CESD_6 CESD_7 CESD_8;
+  MODEL:
+      i s | CESD_0@0 CESD_1@1 CESD_2@2
+      CESD_3@3 CESD_4@4 CESD_5@5
+      CESD_6@6 CESD_7@7 CESD_8@8;
+      CESD_0(1);
+      CESD_1(1);
+      CESD_2(1);
+      CESD_3(1);
+      CESD_4(1);
+      CESD_5(1);
+      CESD_6(1);
+      CESD_7(1);
+      CESD_8(1);
+
+
+  PLOT:
+      Type = PLOT3;
+      Series =  CESD_0 (0) CESD_1 (1) CESD_2 (2) CESD_3 (3)
+      CESD_4 (4) CESD_5 (5) CESD_6 (6) CESD_7 (7);
+
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+CESD-LGCA1 - unconditional linear    model-residuals   constrained
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         500
+
+Number of dependent variables                                    9
+Number of independent variables                                  0
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Continuous
+   CESD_0      CESD_1      CESD_2      CESD_3      CESD_4      CESD_5
+   CESD_6      CESD_7      CESD_8
+
+Continuous latent variables
+   I           S
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  Z:/mplusautomationtutorial/datfiles/pq_mmse_cesd.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            32
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              CESD_0        CESD_1        CESD_2        CESD_3        CESD_4
+              ________      ________      ________      ________      ________
+ CESD_0         0.988
+ CESD_1         0.804         0.816
+ CESD_2         0.664         0.654         0.668
+ CESD_3         0.508         0.508         0.506         0.512
+ CESD_4         0.408         0.406         0.410         0.398         0.412
+ CESD_5         0.312         0.312         0.310         0.306         0.304
+ CESD_6         0.246         0.244         0.246         0.242         0.242
+ CESD_7         0.164         0.164         0.166         0.162         0.164
+ CESD_8         0.082         0.082         0.082         0.080         0.082
+
+
+           Covariance Coverage
+              CESD_5        CESD_6        CESD_7        CESD_8
+              ________      ________      ________      ________
+ CESD_5         0.316
+ CESD_6         0.240         0.248
+ CESD_7         0.162         0.164         0.166
+ CESD_8         0.080         0.082         0.078         0.082
+
+     THE COVARIANCE COVERAGE FALLS BELOW THE SPECIFIED LIMIT.
+     THE MISSING DATA EM ALGORITHM WILL NOT BE INITIATED.
+     CHECK YOUR DATA OR LOWER THE COVARIANCE COVERAGE LIMIT.
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     CESD_0                7.577       1.378       0.000   21.66%       0.000      3.000      5.000
+             494.000      66.532       1.640      42.000    0.20%       7.000     14.000
+     CESD_1                8.637       1.659       0.000   15.69%       1.000      4.000      6.000
+             408.000      90.481       2.763      51.000    0.25%       7.000     15.000
+     CESD_2                9.084       1.350       0.000   10.48%       1.000      5.000      7.000
+             334.000      78.550       1.616      45.000    0.30%       9.000     15.000
+     CESD_3                7.406       1.899       0.000   16.41%       1.000      3.000      5.000
+             256.000      66.765       4.848      52.000    0.39%       7.000     13.000
+     CESD_4                8.825       1.536       0.000    6.80%       2.000      4.000      7.000
+             206.000      69.474       2.676      43.000    0.49%       9.000     14.000
+     CESD_5                8.646       1.475       0.000    6.33%       2.000      5.000      7.000
+             158.000      59.722       3.833      49.000    0.63%       9.000     15.000
+     CESD_6                9.645       1.206       0.000    4.84%       3.000      6.000      8.000
+             124.000      58.326       2.057      43.000    0.81%      10.000     15.000
+     CESD_7               10.783       0.932       0.000    1.20%       4.000      7.000      9.000
+              83.000      59.953       0.342      36.000    1.20%      11.000     17.000
+     CESD_8                9.439       1.170       0.000   14.63%       2.000      5.000      8.000
+              41.000      70.685       0.870      33.000    2.44%      10.000     14.000
+
+
+     THE MINIMUM COVARIANCE COVERAGE WAS NOT FULFILLED.
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        6
+
+Loglikelihood
+
+          H0 Value                       -7073.719
+
+Information Criteria
+
+          Akaike (AIC)                   14159.439
+          Bayesian (BIC)                 14184.726
+          Sample-Size Adjusted BIC       14165.682
+            (n* = (n + 2) / 24)
+
+Degrees of Freedom                              48
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ I        |
+    CESD_0             1.000      0.000    999.000    999.000
+    CESD_1             1.000      0.000    999.000    999.000
+    CESD_2             1.000      0.000    999.000    999.000
+    CESD_3             1.000      0.000    999.000    999.000
+    CESD_4             1.000      0.000    999.000    999.000
+    CESD_5             1.000      0.000    999.000    999.000
+    CESD_6             1.000      0.000    999.000    999.000
+    CESD_7             1.000      0.000    999.000    999.000
+    CESD_8             1.000      0.000    999.000    999.000
+
+ S        |
+    CESD_0             0.000      0.000    999.000    999.000
+    CESD_1             1.000      0.000    999.000    999.000
+    CESD_2             2.000      0.000    999.000    999.000
+    CESD_3             3.000      0.000    999.000    999.000
+    CESD_4             4.000      0.000    999.000    999.000
+    CESD_5             5.000      0.000    999.000    999.000
+    CESD_6             6.000      0.000    999.000    999.000
+    CESD_7             7.000      0.000    999.000    999.000
+    CESD_8             8.000      0.000    999.000    999.000
+
+ S        WITH
+    I                 -0.836      0.661     -1.265      0.206
+
+ Means
+    I                  7.647      0.354     21.596      0.000
+    S                  0.636      0.079      8.033      0.000
+
+ Intercepts
+    CESD_0             0.000      0.000    999.000    999.000
+    CESD_1             0.000      0.000    999.000    999.000
+    CESD_2             0.000      0.000    999.000    999.000
+    CESD_3             0.000      0.000    999.000    999.000
+    CESD_4             0.000      0.000    999.000    999.000
+    CESD_5             0.000      0.000    999.000    999.000
+    CESD_6             0.000      0.000    999.000    999.000
+    CESD_7             0.000      0.000    999.000    999.000
+    CESD_8             0.000      0.000    999.000    999.000
+
+ Variances
+    I                 44.453      3.985     11.154      0.000
+    S                  0.339      0.146      2.316      0.021
+
+ Residual Variances
+    CESD_0            31.041      1.196     25.958      0.000
+    CESD_1            31.041      1.196     25.958      0.000
+    CESD_2            31.041      1.196     25.958      0.000
+    CESD_3            31.041      1.196     25.958      0.000
+    CESD_4            31.041      1.196     25.958      0.000
+    CESD_5            31.041      1.196     25.958      0.000
+    CESD_6            31.041      1.196     25.958      0.000
+    CESD_7            31.041      1.196     25.958      0.000
+    CESD_8            31.041      1.196     25.958      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.915E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+SAMPLE STATISTICS FOR ESTIMATED FACTOR SCORES
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              I             I_SE          S             S_SE
+              ________      ________      ________      ________
+                7.647         3.068         0.636         0.545
+
+
+           Covariances
+              I             I_SE          S             S_SE
+              ________      ________      ________      ________
+ I             34.625
+ I_SE           0.369         0.412
+ S             -0.295        -0.003         0.041
+ S_SE           0.050         0.016         0.000         0.002
+
+
+           Correlations
+              I             I_SE          S             S_SE
+              ________      ________      ________      ________
+ I              1.000
+ I_SE           0.098         1.000
+ S             -0.248        -0.022         1.000
+ S_SE           0.210         0.615         0.054         1.000
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms (sample values, estimated factor scores, estimated values, residuals)
+  Scatterplots (sample values, estimated factor scores, estimated values, residuals)
+  Estimated means
+  Latent variable distribution plots
+  Observed individual values
+  Estimated individual values
+
+     Beginning Time:  21:42:48
+        Ending Time:  21:42:51
+       Elapsed Time:  00:00:03
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

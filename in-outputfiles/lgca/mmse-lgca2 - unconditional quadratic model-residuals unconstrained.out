@@ -1,0 +1,337 @@
+Mplus VERSION 8.4
+MUTHEN & MUTHEN
+05/29/2023   9:43 PM
+
+INPUT INSTRUCTIONS
+
+
+  TITLE: MMSE-LGCA2 - unconditional quadratic model-residuals UNconstrained
+  DATA: FILE IS "Z:/mplusautomationtutorial/datfiles/pq_mmse_cesd.dat";
+  VARIABLE:   NAMES ARE   ID
+  MMSE_0 MMSE_1 MMSE_2 MMSE_3 MMSE_4 MMSE_5 MMSE_6 MMSE_7 MMSE_8
+  CESD_0 CESD_1 CESD_2 CESD_3 CESD_4 CESD_5 CESD_6 CESD_7 CESD_8;
+
+  MISSING ARE .;
+
+  USEVARIABLES ARE MMSE_0 MMSE_1 MMSE_2
+      MMSE_3 MMSE_4 MMSE_5
+      MMSE_6 MMSE_7 MMSE_8;
+  MODEL:
+      i s q | MMSE_0@0 MMSE_1@1 MMSE_2@2
+      MMSE_3@3 MMSE_4@4 MMSE_5@5
+      MMSE_6@6 MMSE_7@7 MMSE_8@8;
+      MMSE_0;
+      MMSE_1;
+      MMSE_2;
+      MMSE_3;
+      MMSE_4;
+      MMSE_5;
+      MMSE_6;
+      MMSE_7;
+      MMSE_8;
+
+
+  PLOT:
+      Type = PLOT3;
+      Series =  MMSE_0 (0) MMSE_1 (1) MMSE_2 (2) MMSE_3 (3)
+      MMSE_4 (4) MMSE_5 (5) MMSE_6 (6) MMSE_7 (7);
+
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+MMSE-LGCA2 - unconditional quadratic model-residuals UNconstrained
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         500
+
+Number of dependent variables                                    9
+Number of independent variables                                  0
+Number of continuous latent variables                            3
+
+Observed dependent variables
+
+  Continuous
+   MMSE_0      MMSE_1      MMSE_2      MMSE_3      MMSE_4      MMSE_5
+   MMSE_6      MMSE_7      MMSE_8
+
+Continuous latent variables
+   I           S           Q
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  Z:/mplusautomationtutorial/datfiles/pq_mmse_cesd.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            18
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              MMSE_0        MMSE_1        MMSE_2        MMSE_3        MMSE_4
+              ________      ________      ________      ________      ________
+ MMSE_0         0.992
+ MMSE_1         0.830         0.834
+ MMSE_2         0.684         0.678         0.690
+ MMSE_3         0.564         0.560         0.568         0.568
+ MMSE_4         0.446         0.442         0.448         0.446         0.448
+ MMSE_5         0.338         0.338         0.340         0.340         0.332
+ MMSE_6         0.262         0.262         0.264         0.264         0.256
+ MMSE_7         0.188         0.190         0.190         0.190         0.190
+ MMSE_8         0.102         0.102         0.102         0.102         0.102
+
+
+           Covariance Coverage
+              MMSE_5        MMSE_6        MMSE_7        MMSE_8
+              ________      ________      ________      ________
+ MMSE_5         0.340
+ MMSE_6         0.264         0.264
+ MMSE_7         0.190         0.190         0.190
+ MMSE_8         0.102         0.102         0.102         0.102
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     MMSE_0               26.972      -1.162      17.000    0.20%      25.000     27.000     28.000
+             496.000       6.737       1.090      30.000   12.90%      28.000     29.000
+     MMSE_1               26.513      -2.956       0.000    0.48%      24.000     27.000     28.000
+             417.000      13.080      14.686      30.000   10.07%      28.000     29.000
+     MMSE_2               26.070      -2.505       0.000    0.58%      24.000     27.000     28.000
+             345.000      19.195       8.704      30.000   11.59%      28.000     29.000
+     MMSE_3               25.775      -2.532       0.000    0.35%      24.000     27.000     28.000
+             284.000      25.132       7.528      30.000   10.56%      28.000     29.000
+     MMSE_4               25.268      -2.515       0.000    1.79%      23.000     26.000     27.000
+             224.000      33.928       6.858      30.000    9.82%      28.000     29.000
+     MMSE_5               25.365      -2.130       1.000    0.59%      23.000     27.000     27.000
+             170.000      25.502       5.224      30.000   10.59%      28.000     29.000
+     MMSE_6               24.470      -2.355       0.000    3.03%      23.000     26.000     27.000
+             132.000      46.340       5.086      30.000    4.55%      27.000     29.000
+     MMSE_7               25.158      -1.955       4.000    1.05%      22.000     26.000     27.000
+              95.000      21.312       4.845      30.000    6.32%      27.000     28.000
+     MMSE_8               23.667      -1.575       5.000    3.92%      20.000     24.000     26.000
+              51.000      38.418       2.128      30.000    5.88%      27.000     29.000
+
+
+     THE MISSING DATA EM ALGORITHM FOR THE H1 MODEL
+     HAS NOT CONVERGED WITH RESPECT TO THE PARAMETER
+     ESTIMATES.  THIS MAY BE DUE TO SPARSE DATA
+     LEADING TO A SINGULAR COVARIANCE MATRIX ESTIMATE.
+     INCREASE THE NUMBER OF H1 ITERATIONS.
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       18
+
+Loglikelihood
+
+          H0 Value                       -9012.127
+
+Information Criteria
+
+          Akaike (AIC)                   18060.254
+          Bayesian (BIC)                 18136.117
+          Sample-Size Adjusted BIC       18078.984
+            (n* = (n + 2) / 24)
+
+Degrees of Freedom                              36
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ I        |
+    MMSE_0             1.000      0.000    999.000    999.000
+    MMSE_1             1.000      0.000    999.000    999.000
+    MMSE_2             1.000      0.000    999.000    999.000
+    MMSE_3             1.000      0.000    999.000    999.000
+    MMSE_4             1.000      0.000    999.000    999.000
+    MMSE_5             1.000      0.000    999.000    999.000
+    MMSE_6             1.000      0.000    999.000    999.000
+    MMSE_7             1.000      0.000    999.000    999.000
+    MMSE_8             1.000      0.000    999.000    999.000
+
+ S        |
+    MMSE_0             0.000      0.000    999.000    999.000
+    MMSE_1             1.000      0.000    999.000    999.000
+    MMSE_2             2.000      0.000    999.000    999.000
+    MMSE_3             3.000      0.000    999.000    999.000
+    MMSE_4             4.000      0.000    999.000    999.000
+    MMSE_5             5.000      0.000    999.000    999.000
+    MMSE_6             6.000      0.000    999.000    999.000
+    MMSE_7             7.000      0.000    999.000    999.000
+    MMSE_8             8.000      0.000    999.000    999.000
+
+ Q        |
+    MMSE_0             0.000      0.000    999.000    999.000
+    MMSE_1             1.000      0.000    999.000    999.000
+    MMSE_2             4.000      0.000    999.000    999.000
+    MMSE_3             9.000      0.000    999.000    999.000
+    MMSE_4            16.000      0.000    999.000    999.000
+    MMSE_5            25.000      0.000    999.000    999.000
+    MMSE_6            36.000      0.000    999.000    999.000
+    MMSE_7            49.000      0.000    999.000    999.000
+    MMSE_8            64.000      0.000    999.000    999.000
+
+ S        WITH
+    I                  1.203      0.433      2.778      0.005
+
+ Q        WITH
+    I                  0.113      0.080      1.410      0.159
+    S                 -0.061      0.092     -0.666      0.505
+
+ Means
+    I                 26.937      0.114    236.328      0.000
+    S                 -0.307      0.120     -2.558      0.011
+    Q                 -0.199      0.026     -7.794      0.000
+
+ Intercepts
+    MMSE_0             0.000      0.000    999.000    999.000
+    MMSE_1             0.000      0.000    999.000    999.000
+    MMSE_2             0.000      0.000    999.000    999.000
+    MMSE_3             0.000      0.000    999.000    999.000
+    MMSE_4             0.000      0.000    999.000    999.000
+    MMSE_5             0.000      0.000    999.000    999.000
+    MMSE_6             0.000      0.000    999.000    999.000
+    MMSE_7             0.000      0.000    999.000    999.000
+    MMSE_8             0.000      0.000    999.000    999.000
+
+ Variances
+    I                  4.343      0.582      7.466      0.000
+    S                  3.150      0.604      5.218      0.000
+    Q                  0.061      0.014      4.358      0.000
+
+ Residual Variances
+    MMSE_0             2.380      0.505      4.710      0.000
+    MMSE_1             3.643      0.420      8.674      0.000
+    MMSE_2             2.469      0.340      7.256      0.000
+    MMSE_3             2.904      0.390      7.444      0.000
+    MMSE_4             3.264      0.538      6.068      0.000
+    MMSE_5             2.890      0.549      5.261      0.000
+    MMSE_6             7.124      1.381      5.159      0.000
+    MMSE_7             6.622      2.245      2.950      0.003
+    MMSE_8            26.229      7.033      3.730      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.115E-03
+       (ratio of smallest to largest eigenvalue)
+
+
+SAMPLE STATISTICS FOR ESTIMATED FACTOR SCORES
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              I             I_SE          S             S_SE          Q
+              ________      ________      ________      ________      ________
+               26.937         1.059        -0.307         1.032        -0.199
+
+
+           Means
+              Q_SE
+              ________
+                0.198
+
+
+           Covariances
+              I             I_SE          S             S_SE          Q
+              ________      ________      ________      ________      ________
+ I              3.214
+ I_SE          -0.021         0.008
+ S              1.515        -0.008         1.965
+ S_SE          -0.150         0.025        -0.084         0.121
+ Q              0.072        -0.001         0.044        -0.005         0.019
+ Q_SE          -0.030         0.002        -0.023         0.012        -0.002
+
+
+           Covariances
+              Q_SE
+              ________
+ Q_SE           0.003
+
+
+           Correlations
+              I             I_SE          S             S_SE          Q
+              ________      ________      ________      ________      ________
+ I              1.000
+ I_SE          -0.134         1.000
+ S              0.603        -0.063         1.000
+ S_SE          -0.240         0.821        -0.171         1.000
+ Q              0.293        -0.045         0.227        -0.115         1.000
+ Q_SE          -0.317         0.426        -0.316         0.679        -0.259
+
+
+           Correlations
+              Q_SE
+              ________
+ Q_SE           1.000
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms (sample values, estimated factor scores, estimated values, residuals)
+  Scatterplots (sample values, estimated factor scores, estimated values, residuals)
+  Estimated means
+  Latent variable distribution plots
+  Observed individual values
+  Estimated individual values
+
+     Beginning Time:  21:43:15
+        Ending Time:  21:43:18
+       Elapsed Time:  00:00:03
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

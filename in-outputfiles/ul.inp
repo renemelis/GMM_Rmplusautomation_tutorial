@@ -1,0 +1,24 @@
+TITLE:
+unconditional linear model MMSE;
+DATA:
+FILE = "ul_97c89ee503bbb03371fc8ec2585293f7.dat";
+ 
+VARIABLE:
+NAMES = MMSE_0 MMSE_1 MMSE_2 MMSE_3 MMSE_4 MMSE_5 MMSE_6 MMSE_7 MMSE_8; 
+ MISSING=.;
+ 
+MODEL:
+i s | MMSE_0@0 MMSE_1@1 MMSE_2@2 MMSE_3@3 MMSE_4@4 MMSE_5@5 MMSE_6@6 MMSE_7@7 MMSE_8@8;
+                  MMSE_0(1);
+                  MMSE_1(1);
+                  MMSE_2(1);
+                  MMSE_3(1);
+                  MMSE_4(1);
+                  MMSE_5(1);
+                  MMSE_6(1);
+                  MMSE_7(1);
+                  MMSE_8(1);
+PLOT:
+Type = PLOT3;
+    Series =  MMSE_0 (0) MMSE_1 (1) MMSE_2 (2) MMSE_3 (3) 
+    MMSE_4 (4) MMSE_5 (5) MMSE_6 (6) MMSE_7 (7);

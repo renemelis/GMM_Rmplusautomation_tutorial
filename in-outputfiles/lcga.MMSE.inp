@@ -1,0 +1,42 @@
+TITLE:
+MMSE-LCGA2 - unconditional quadratic model - sq@0-2 classes-residuals UNconstrained;
+DATA:
+FILE = "ul_97c89ee503bbb03371fc8ec2585293f7.dat";
+ 
+VARIABLE:
+NAMES = MMSE_0 MMSE_1 MMSE_2 MMSE_3 MMSE_4 MMSE_5 MMSE_6 MMSE_7 MMSE_8; 
+ MISSING=.;
+ CLASSES = c(2);
+  USEVARIABLES ARE MMSE_0 MMSE_1 MMSE_2 MMSE_3 MMSE_4 MMSE_5 MMSE_6 MMSE_7 MMSE_8;
+ANALYSIS:
+type=mixture;
+  starts=100 20;
+  estimator=MLR;
+MODEL:
+%overall%
+    i s q| 
+    MMSE_0@0 MMSE_1@1 MMSE_2@2 
+    MMSE_3@3 MMSE_4@4 MMSE_5@5
+    MMSE_6@6 MMSE_7@7 MMSE_8@8;
+    MMSE_0; 
+    MMSE_1; 
+    MMSE_2; 
+    MMSE_3;
+    MMSE_4;
+    MMSE_5;
+    MMSE_6;
+    MMSE_7;
+    MMSE_8;
+  i;
+  s@0;
+  q@0;
+%c#1%
+  [i s q];
+%c#2%
+  [i s q];
+OUTPUT:
+TECH11 TECH14;
+PLOT:
+Type = PLOT3;
+    Series =  MMSE_0 (0) MMSE_1 (1) MMSE_2 (2) MMSE_3 (3) 
+    MMSE_4 (4) MMSE_5 (5) MMSE_6 (6) MMSE_7 (7);

@@ -1,0 +1,32 @@
+
+TITLE: CESD-LGCA2 - unconditional quadratic model-residuals UNconstrained
+DATA: FILE IS "Z:/mplusautomationtutorial/datfiles/pq_mmse_cesd.dat";
+VARIABLE:   NAMES ARE   ID 
+MMSE_0 MMSE_1 MMSE_2 MMSE_3 MMSE_4 MMSE_5 MMSE_6 MMSE_7 MMSE_8  
+CESD_0 CESD_1 CESD_2 CESD_3 CESD_4 CESD_5 CESD_6 CESD_7 CESD_8;
+
+MISSING ARE .;
+
+USEVARIABLES ARE CESD_0 CESD_1 CESD_2 
+    CESD_3 CESD_4 CESD_5
+    CESD_6 CESD_7 CESD_8;
+MODEL:
+    i s q | CESD_0@0 CESD_1@1 CESD_2@2 
+    CESD_3@3 CESD_4@4 CESD_5@5
+    CESD_6@6 CESD_7@7 CESD_8@8;
+    CESD_0; 
+    CESD_1; 
+    CESD_2; 
+    CESD_3;
+    CESD_4;
+    CESD_5;
+    CESD_6;
+    CESD_7;
+    CESD_8;
+    
+    
+PLOT:
+    Type = PLOT3;
+    Series =  CESD_0 (0) CESD_1 (1) CESD_2 (2) CESD_3 (3) 
+    CESD_4 (4) CESD_5 (5) CESD_6 (6) CESD_7 (7);
+

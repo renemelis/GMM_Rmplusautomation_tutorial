@@ -1,0 +1,47 @@
+
+TITLE: CESD-LCGA2 - unconditional quadratic model - sq@0-3 classes-residuals UNconstrained
+DATA: FILE IS "Z:/mplusautomationtutorial/datfiles/pq_mmse_cesd.dat";
+ANALYSIS: 
+type=mixture;
+starts=100 20;
+estimator=MLR;
+VARIABLE:   NAMES ARE   ID 
+MMSE_0 MMSE_1 MMSE_2 MMSE_3 MMSE_4 MMSE_5 MMSE_6 MMSE_7 MMSE_8  
+CESD_0 CESD_1 CESD_2 CESD_3 CESD_4 CESD_5 CESD_6 CESD_7 CESD_8;
+CLASSES = c(3);
+
+MISSING ARE .;
+
+USEVARIABLES ARE CESD_0 CESD_1 CESD_2 
+    CESD_3 CESD_4 CESD_5
+    CESD_6 CESD_7 CESD_8;
+MODEL:
+%overall%
+    i s q| 
+    CESD_0@0 CESD_1@1 CESD_2@2 
+    CESD_3@3 CESD_4@4 CESD_5@5
+    CESD_6@6 CESD_7@7 CESD_8@8;
+    CESD_0; 
+    CESD_1; 
+    CESD_2; 
+    CESD_3;
+    CESD_4;
+    CESD_5;
+    CESD_6;
+    CESD_7;
+    CESD_8;
+  i;
+  s@0;
+  q@0;
+%c#1%
+  [i s q];
+%c#2%
+  [i s q];
+%c#3%
+  [i s q];
+
+PLOT:
+    Type = PLOT3;
+    Series =  CESD_0 (0) CESD_1 (1) CESD_2 (2) CESD_3 (3) 
+    CESD_4 (4) CESD_5 (5) CESD_6 (6) CESD_7 (7);
+OUTPUT: TECH11 TECH14;

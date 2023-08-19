@@ -1,0 +1,739 @@
+Mplus VERSION 8.4
+MUTHEN & MUTHEN
+05/29/2023   9:49 PM
+
+INPUT INSTRUCTIONS
+
+
+  TITLE: MMSE-LCGA2 - unconditional quadratic model - iq@0-4 classes-residuals UNconstrained
+  DATA: FILE IS "Z:/mplusautomationtutorial/datfiles/pq_mmse_cesd.dat";
+  ANALYSIS:
+  type=mixture;
+  starts=100 20;
+  estimator=MLR;
+  VARIABLE:   NAMES ARE   ID
+  MMSE_0 MMSE_1 MMSE_2 MMSE_3 MMSE_4 MMSE_5 MMSE_6 MMSE_7 MMSE_8
+  CESD_0 CESD_1 CESD_2 CESD_3 CESD_4 CESD_5 CESD_6 CESD_7 CESD_8;
+  CLASSES = c(4);
+
+  MISSING ARE .;
+
+  USEVARIABLES ARE MMSE_0 MMSE_1 MMSE_2
+      MMSE_3 MMSE_4 MMSE_5
+      MMSE_6 MMSE_7 MMSE_8;
+  MODEL:
+  %overall%
+      i s q|
+      MMSE_0@0 MMSE_1@1 MMSE_2@2
+      MMSE_3@3 MMSE_4@4 MMSE_5@5
+      MMSE_6@6 MMSE_7@7 MMSE_8@8;
+      MMSE_0;
+      MMSE_1;
+      MMSE_2;
+      MMSE_3;
+      MMSE_4;
+      MMSE_5;
+      MMSE_6;
+      MMSE_7;
+      MMSE_8;
+    i@0;
+    s@0;
+    q@0;
+  %c#1%
+    [i s q];
+  %c#2%
+    [i s q];
+  %c#3%
+    [i s q];
+  %c#4%
+    [i s q];
+
+  PLOT:
+      Type = PLOT3;
+      Series =  MMSE_0 (0) MMSE_1 (1) MMSE_2 (2) MMSE_3 (3)
+      MMSE_4 (4) MMSE_5 (5) MMSE_6 (6) MMSE_7 (7);
+  OUTPUT: TECH11 TECH14;
+
+
+
+*** WARNING in MODEL command
+  All continuous latent variable covariances involving I have been fixed to 0
+  because the variance of I is fixed at 0.
+*** WARNING in MODEL command
+  All continuous latent variable covariances involving S have been fixed to 0
+  because the variance of S is fixed at 0.
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+MMSE-LCGA2 - unconditional quadratic model - iq@0-4 classes-residuals UNconstrained
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         500
+
+Number of dependent variables                                    9
+Number of independent variables                                  0
+Number of continuous latent variables                            3
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Continuous
+   MMSE_0      MMSE_1      MMSE_2      MMSE_3      MMSE_4      MMSE_5
+   MMSE_6      MMSE_7      MMSE_8
+
+Continuous latent variables
+   I           S           Q
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        100
+  Number of final stage optimizations                           20
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+
+Input data file(s)
+  Z:/mplusautomationtutorial/datfiles/pq_mmse_cesd.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            18
+     Number of y missing data patterns          18
+     Number of u missing data patterns           0
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR Y
+
+
+           Covariance Coverage
+              MMSE_0        MMSE_1        MMSE_2        MMSE_3        MMSE_4
+              ________      ________      ________      ________      ________
+ MMSE_0         0.992
+ MMSE_1         0.830         0.834
+ MMSE_2         0.684         0.678         0.690
+ MMSE_3         0.564         0.560         0.568         0.568
+ MMSE_4         0.446         0.442         0.448         0.446         0.448
+ MMSE_5         0.338         0.338         0.340         0.340         0.332
+ MMSE_6         0.262         0.262         0.264         0.264         0.256
+ MMSE_7         0.188         0.190         0.190         0.190         0.190
+ MMSE_8         0.102         0.102         0.102         0.102         0.102
+
+
+           Covariance Coverage
+              MMSE_5        MMSE_6        MMSE_7        MMSE_8
+              ________      ________      ________      ________
+ MMSE_5         0.340
+ MMSE_6         0.264         0.264
+ MMSE_7         0.190         0.190         0.190
+ MMSE_8         0.102         0.102         0.102         0.102
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     MMSE_0               26.972      -1.162      17.000    0.20%      25.000     27.000     28.000
+             496.000       6.737       1.090      30.000   12.90%      28.000     29.000
+     MMSE_1               26.513      -2.956       0.000    0.48%      24.000     27.000     28.000
+             417.000      13.080      14.686      30.000   10.07%      28.000     29.000
+     MMSE_2               26.070      -2.505       0.000    0.58%      24.000     27.000     28.000
+             345.000      19.195       8.704      30.000   11.59%      28.000     29.000
+     MMSE_3               25.775      -2.532       0.000    0.35%      24.000     27.000     28.000
+             284.000      25.132       7.528      30.000   10.56%      28.000     29.000
+     MMSE_4               25.268      -2.515       0.000    1.79%      23.000     26.000     27.000
+             224.000      33.928       6.858      30.000    9.82%      28.000     29.000
+     MMSE_5               25.365      -2.130       1.000    0.59%      23.000     27.000     27.000
+             170.000      25.502       5.224      30.000   10.59%      28.000     29.000
+     MMSE_6               24.470      -2.355       0.000    3.03%      23.000     26.000     27.000
+             132.000      46.340       5.086      30.000    4.55%      27.000     29.000
+     MMSE_7               25.158      -1.955       4.000    1.05%      22.000     26.000     27.000
+              95.000      21.312       4.845      30.000    6.32%      27.000     28.000
+     MMSE_8               23.667      -1.575       5.000    3.92%      20.000     24.000     26.000
+              51.000      38.418       2.128      30.000    5.88%      27.000     29.000
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+           -5448.551  399671           13
+           -5448.551  761633           50
+           -5448.551  789985           67
+           -5448.551  603842           61
+           -5448.551  364676           27
+           -5448.551  939021           8
+           -5448.551  650371           14
+           -5448.551  76974            16
+           -5448.551  27071            15
+           -5448.551  373505           88
+           -5448.551  915642           40
+           -5448.881  992389           77
+           -5448.881  246261           38
+           -5448.881  637345           19
+           -5448.881  565819           65
+           -5448.881  341041           34
+           -5448.881  127215           9
+           -5448.881  804561           59
+
+2 perturbed starting value run(s) did not converge or were rejected in the third stage.
+
+
+
+THE BEST LOGLIKELIHOOD VALUE HAS BEEN REPLICATED.  RERUN WITH AT LEAST TWICE THE
+RANDOM STARTS TO CHECK THAT THE BEST LOGLIKELIHOOD IS STILL OBTAINED AND REPLICATED.
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       24
+
+Loglikelihood
+
+          H0 Value                       -5448.551
+          H0 Scaling Correction Factor      3.0464
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   10945.102
+          Bayesian (BIC)                 11046.253
+          Sample-Size Adjusted BIC       10970.075
+            (n* = (n + 2) / 24)
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1         36.95264          0.07391
+       2        290.95622          0.58191
+       3         53.76976          0.10754
+       4        118.32138          0.23664
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1         36.95264          0.07391
+       2        290.95622          0.58191
+       3         53.76976          0.10754
+       4        118.32138          0.23664
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1               38          0.07600
+       2              307          0.61400
+       3               43          0.08600
+       4              112          0.22400
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.770
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4
+
+    1   0.908    0.008    0.020    0.064
+    2   0.001    0.949    0.001    0.050
+    3   0.057    0.057    0.699    0.187
+    4   0.010    0.234    0.037    0.719
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4
+
+    1      2.656   -2.081   -1.171    0.000
+    2     -4.564    2.949   -3.790    0.000
+    3     -1.182   -1.198    1.316    0.000
+    4     -4.270   -1.124   -2.969    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ I        |
+    MMSE_0             1.000      0.000    999.000    999.000
+    MMSE_1             1.000      0.000    999.000    999.000
+    MMSE_2             1.000      0.000    999.000    999.000
+    MMSE_3             1.000      0.000    999.000    999.000
+    MMSE_4             1.000      0.000    999.000    999.000
+    MMSE_5             1.000      0.000    999.000    999.000
+    MMSE_6             1.000      0.000    999.000    999.000
+    MMSE_7             1.000      0.000    999.000    999.000
+    MMSE_8             1.000      0.000    999.000    999.000
+
+ S        |
+    MMSE_0             0.000      0.000    999.000    999.000
+    MMSE_1             1.000      0.000    999.000    999.000
+    MMSE_2             2.000      0.000    999.000    999.000
+    MMSE_3             3.000      0.000    999.000    999.000
+    MMSE_4             4.000      0.000    999.000    999.000
+    MMSE_5             5.000      0.000    999.000    999.000
+    MMSE_6             6.000      0.000    999.000    999.000
+    MMSE_7             7.000      0.000    999.000    999.000
+    MMSE_8             8.000      0.000    999.000    999.000
+
+ Q        |
+    MMSE_0             0.000      0.000    999.000    999.000
+    MMSE_1             1.000      0.000    999.000    999.000
+    MMSE_2             4.000      0.000    999.000    999.000
+    MMSE_3             9.000      0.000    999.000    999.000
+    MMSE_4            16.000      0.000    999.000    999.000
+    MMSE_5            25.000      0.000    999.000    999.000
+    MMSE_6            36.000      0.000    999.000    999.000
+    MMSE_7            49.000      0.000    999.000    999.000
+    MMSE_8            64.000      0.000    999.000    999.000
+
+ Means
+    I                 22.845      0.673     33.968      0.000
+    S                 -5.148      1.405     -3.663      0.000
+    Q                 -0.196      0.378     -0.519      0.603
+
+ Intercepts
+    MMSE_0             0.000      0.000    999.000    999.000
+    MMSE_1             0.000      0.000    999.000    999.000
+    MMSE_2             0.000      0.000    999.000    999.000
+    MMSE_3             0.000      0.000    999.000    999.000
+    MMSE_4             0.000      0.000    999.000    999.000
+    MMSE_5             0.000      0.000    999.000    999.000
+    MMSE_6             0.000      0.000    999.000    999.000
+    MMSE_7             0.000      0.000    999.000    999.000
+    MMSE_8             0.000      0.000    999.000    999.000
+
+ Variances
+    I                  0.000      0.000    999.000    999.000
+    S                  0.000      0.000    999.000    999.000
+    Q                  0.000      0.000    999.000    999.000
+
+ Residual Variances
+    MMSE_0             3.694      0.360     10.275      0.000
+    MMSE_1             5.766      1.280      4.504      0.000
+    MMSE_2             4.625      0.822      5.629      0.000
+    MMSE_3             4.146      0.597      6.946      0.000
+    MMSE_4             6.253      1.199      5.215      0.000
+    MMSE_5             6.697      1.357      4.937      0.000
+    MMSE_6            18.626      6.846      2.721      0.007
+    MMSE_7            10.472      2.578      4.062      0.000
+    MMSE_8            41.374     11.997      3.449      0.001
+
+Latent Class 2
+
+ I        |
+    MMSE_0             1.000      0.000    999.000    999.000
+    MMSE_1             1.000      0.000    999.000    999.000
+    MMSE_2             1.000      0.000    999.000    999.000
+    MMSE_3             1.000      0.000    999.000    999.000
+    MMSE_4             1.000      0.000    999.000    999.000
+    MMSE_5             1.000      0.000    999.000    999.000
+    MMSE_6             1.000      0.000    999.000    999.000
+    MMSE_7             1.000      0.000    999.000    999.000
+    MMSE_8             1.000      0.000    999.000    999.000
+
+ S        |
+    MMSE_0             0.000      0.000    999.000    999.000
+    MMSE_1             1.000      0.000    999.000    999.000
+    MMSE_2             2.000      0.000    999.000    999.000
+    MMSE_3             3.000      0.000    999.000    999.000
+    MMSE_4             4.000      0.000    999.000    999.000
+    MMSE_5             5.000      0.000    999.000    999.000
+    MMSE_6             6.000      0.000    999.000    999.000
+    MMSE_7             7.000      0.000    999.000    999.000
+    MMSE_8             8.000      0.000    999.000    999.000
+
+ Q        |
+    MMSE_0             0.000      0.000    999.000    999.000
+    MMSE_1             1.000      0.000    999.000    999.000
+    MMSE_2             4.000      0.000    999.000    999.000
+    MMSE_3             9.000      0.000    999.000    999.000
+    MMSE_4            16.000      0.000    999.000    999.000
+    MMSE_5            25.000      0.000    999.000    999.000
+    MMSE_6            36.000      0.000    999.000    999.000
+    MMSE_7            49.000      0.000    999.000    999.000
+    MMSE_8            64.000      0.000    999.000    999.000
+
+ Means
+    I                 28.238      0.100    281.123      0.000
+    S                  0.104      0.071      1.458      0.145
+    Q                 -0.052      0.012     -4.384      0.000
+
+ Intercepts
+    MMSE_0             0.000      0.000    999.000    999.000
+    MMSE_1             0.000      0.000    999.000    999.000
+    MMSE_2             0.000      0.000    999.000    999.000
+    MMSE_3             0.000      0.000    999.000    999.000
+    MMSE_4             0.000      0.000    999.000    999.000
+    MMSE_5             0.000      0.000    999.000    999.000
+    MMSE_6             0.000      0.000    999.000    999.000
+    MMSE_7             0.000      0.000    999.000    999.000
+    MMSE_8             0.000      0.000    999.000    999.000
+
+ Variances
+    I                  0.000      0.000    999.000    999.000
+    S                  0.000      0.000    999.000    999.000
+    Q                  0.000      0.000    999.000    999.000
+
+ Residual Variances
+    MMSE_0             3.694      0.360     10.275      0.000
+    MMSE_1             5.766      1.280      4.504      0.000
+    MMSE_2             4.625      0.822      5.629      0.000
+    MMSE_3             4.146      0.597      6.946      0.000
+    MMSE_4             6.253      1.199      5.215      0.000
+    MMSE_5             6.697      1.357      4.937      0.000
+    MMSE_6            18.626      6.846      2.721      0.007
+    MMSE_7            10.472      2.578      4.062      0.000
+    MMSE_8            41.374     11.997      3.449      0.001
+
+Latent Class 3
+
+ I        |
+    MMSE_0             1.000      0.000    999.000    999.000
+    MMSE_1             1.000      0.000    999.000    999.000
+    MMSE_2             1.000      0.000    999.000    999.000
+    MMSE_3             1.000      0.000    999.000    999.000
+    MMSE_4             1.000      0.000    999.000    999.000
+    MMSE_5             1.000      0.000    999.000    999.000
+    MMSE_6             1.000      0.000    999.000    999.000
+    MMSE_7             1.000      0.000    999.000    999.000
+    MMSE_8             1.000      0.000    999.000    999.000
+
+ S        |
+    MMSE_0             0.000      0.000    999.000    999.000
+    MMSE_1             1.000      0.000    999.000    999.000
+    MMSE_2             2.000      0.000    999.000    999.000
+    MMSE_3             3.000      0.000    999.000    999.000
+    MMSE_4             4.000      0.000    999.000    999.000
+    MMSE_5             5.000      0.000    999.000    999.000
+    MMSE_6             6.000      0.000    999.000    999.000
+    MMSE_7             7.000      0.000    999.000    999.000
+    MMSE_8             8.000      0.000    999.000    999.000
+
+ Q        |
+    MMSE_0             0.000      0.000    999.000    999.000
+    MMSE_1             1.000      0.000    999.000    999.000
+    MMSE_2             4.000      0.000    999.000    999.000
+    MMSE_3             9.000      0.000    999.000    999.000
+    MMSE_4            16.000      0.000    999.000    999.000
+    MMSE_5            25.000      0.000    999.000    999.000
+    MMSE_6            36.000      0.000    999.000    999.000
+    MMSE_7            49.000      0.000    999.000    999.000
+    MMSE_8            64.000      0.000    999.000    999.000
+
+ Means
+    I                 24.765      0.535     46.288      0.000
+    S                 -0.543      0.628     -0.864      0.388
+    Q                 -0.619      0.149     -4.163      0.000
+
+ Intercepts
+    MMSE_0             0.000      0.000    999.000    999.000
+    MMSE_1             0.000      0.000    999.000    999.000
+    MMSE_2             0.000      0.000    999.000    999.000
+    MMSE_3             0.000      0.000    999.000    999.000
+    MMSE_4             0.000      0.000    999.000    999.000
+    MMSE_5             0.000      0.000    999.000    999.000
+    MMSE_6             0.000      0.000    999.000    999.000
+    MMSE_7             0.000      0.000    999.000    999.000
+    MMSE_8             0.000      0.000    999.000    999.000
+
+ Variances
+    I                  0.000      0.000    999.000    999.000
+    S                  0.000      0.000    999.000    999.000
+    Q                  0.000      0.000    999.000    999.000
+
+ Residual Variances
+    MMSE_0             3.694      0.360     10.275      0.000
+    MMSE_1             5.766      1.280      4.504      0.000
+    MMSE_2             4.625      0.822      5.629      0.000
+    MMSE_3             4.146      0.597      6.946      0.000
+    MMSE_4             6.253      1.199      5.215      0.000
+    MMSE_5             6.697      1.357      4.937      0.000
+    MMSE_6            18.626      6.846      2.721      0.007
+    MMSE_7            10.472      2.578      4.062      0.000
+    MMSE_8            41.374     11.997      3.449      0.001
+
+Latent Class 4
+
+ I        |
+    MMSE_0             1.000      0.000    999.000    999.000
+    MMSE_1             1.000      0.000    999.000    999.000
+    MMSE_2             1.000      0.000    999.000    999.000
+    MMSE_3             1.000      0.000    999.000    999.000
+    MMSE_4             1.000      0.000    999.000    999.000
+    MMSE_5             1.000      0.000    999.000    999.000
+    MMSE_6             1.000      0.000    999.000    999.000
+    MMSE_7             1.000      0.000    999.000    999.000
+    MMSE_8             1.000      0.000    999.000    999.000
+
+ S        |
+    MMSE_0             0.000      0.000    999.000    999.000
+    MMSE_1             1.000      0.000    999.000    999.000
+    MMSE_2             2.000      0.000    999.000    999.000
+    MMSE_3             3.000      0.000    999.000    999.000
+    MMSE_4             4.000      0.000    999.000    999.000
+    MMSE_5             5.000      0.000    999.000    999.000
+    MMSE_6             6.000      0.000    999.000    999.000
+    MMSE_7             7.000      0.000    999.000    999.000
+    MMSE_8             8.000      0.000    999.000    999.000
+
+ Q        |
+    MMSE_0             0.000      0.000    999.000    999.000
+    MMSE_1             1.000      0.000    999.000    999.000
+    MMSE_2             4.000      0.000    999.000    999.000
+    MMSE_3             9.000      0.000    999.000    999.000
+    MMSE_4            16.000      0.000    999.000    999.000
+    MMSE_5            25.000      0.000    999.000    999.000
+    MMSE_6            36.000      0.000    999.000    999.000
+    MMSE_7            49.000      0.000    999.000    999.000
+    MMSE_8            64.000      0.000    999.000    999.000
+
+ Means
+    I                 26.115      0.435     60.100      0.000
+    S                 -0.063      0.240     -0.263      0.793
+    Q                 -0.178      0.063     -2.843      0.004
+
+ Intercepts
+    MMSE_0             0.000      0.000    999.000    999.000
+    MMSE_1             0.000      0.000    999.000    999.000
+    MMSE_2             0.000      0.000    999.000    999.000
+    MMSE_3             0.000      0.000    999.000    999.000
+    MMSE_4             0.000      0.000    999.000    999.000
+    MMSE_5             0.000      0.000    999.000    999.000
+    MMSE_6             0.000      0.000    999.000    999.000
+    MMSE_7             0.000      0.000    999.000    999.000
+    MMSE_8             0.000      0.000    999.000    999.000
+
+ Variances
+    I                  0.000      0.000    999.000    999.000
+    S                  0.000      0.000    999.000    999.000
+    Q                  0.000      0.000    999.000    999.000
+
+ Residual Variances
+    MMSE_0             3.694      0.360     10.275      0.000
+    MMSE_1             5.766      1.280      4.504      0.000
+    MMSE_2             4.625      0.822      5.629      0.000
+    MMSE_3             4.146      0.597      6.946      0.000
+    MMSE_4             6.253      1.199      5.215      0.000
+    MMSE_5             6.697      1.357      4.937      0.000
+    MMSE_6            18.626      6.846      2.721      0.007
+    MMSE_7            10.472      2.578      4.062      0.000
+    MMSE_8            41.374     11.997      3.449      0.001
+
+Categorical Latent Variables
+
+ Means
+    C#1               -1.164      0.232     -5.008      0.000
+    C#2                0.900      0.187      4.820      0.000
+    C#3               -0.789      0.237     -3.331      0.001
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.717E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+TECHNICAL 11 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 100
+        Number of final stage optimizations                    20
+
+
+
+     VUONG-LO-MENDELL-RUBIN LIKELIHOOD RATIO TEST FOR 3 (H0) VERSUS 4 CLASSES
+
+          H0 Loglikelihood Value                        -5591.746
+          2 Times the Loglikelihood Difference            286.390
+          Difference in the Number of Parameters                4
+          Mean                                            -67.840
+          Standard Deviation                              207.751
+          P-Value                                          0.0304
+
+     LO-MENDELL-RUBIN ADJUSTED LRT TEST
+
+          Value                                           275.315
+          P-Value                                          0.0338
+
+
+TECHNICAL 14 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 100
+        Number of final stage optimizations                    20
+
+     Random Starts Specification for the k-1 Class Model for Generated Data
+        Number of initial stage random starts                   0
+        Number of final stage optimizations for the
+           initial stage random starts                          0
+     Random Starts Specification for the k Class Model for Generated Data
+        Number of initial stage random starts                  40
+        Number of final stage optimizations                     8
+     Number of bootstrap draws requested                   Varies
+
+
+     PARAMETRIC BOOTSTRAPPED LIKELIHOOD RATIO TEST FOR 3 (H0) VERSUS 4 CLASSES
+
+          H0 Loglikelihood Value                        -5591.746
+          2 Times the Loglikelihood Difference            286.390
+          Difference in the Number of Parameters                4
+          Approximate P-Value                              0.0000
+          Successful Bootstrap Draws                            5
+
+
+SAMPLE STATISTICS FOR ESTIMATED FACTOR SCORES
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              I             S             Q             C_I           C_S
+              ________      ________      ________      ________      ________
+               26.964        -0.393        -0.153        27.054        -0.388
+
+
+           Means
+              C_Q
+              ________
+               -0.140
+
+
+           Covariances
+              I             S             Q             C_I           C_S
+              ________      ________      ________      ________      ________
+ I              2.411
+ S              1.580         1.568
+ Q              0.167         0.053         0.022
+ C_I            2.555         1.677         0.177         2.856
+ C_S            1.675         1.678         0.055         1.842         1.896
+ C_Q            0.165         0.049         0.022         0.185         0.051
+
+
+           Covariances
+              C_Q
+              ________
+ C_Q            0.025
+
+
+           Correlations
+              I             S             Q             C_I           C_S
+              ________      ________      ________      ________      ________
+ I              1.000
+ S              0.813         1.000
+ Q              0.729         0.287         1.000
+ C_I            0.974         0.793         0.710         1.000
+ C_S            0.784         0.973         0.271         0.792         1.000
+ C_Q            0.670         0.246         0.952         0.689         0.232
+
+
+           Correlations
+              C_Q
+              ________
+ C_Q            1.000
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms (sample values, estimated factor scores, estimated values, residuals)
+  Scatterplots (sample values, estimated factor scores, estimated values, residuals)
+  Sample means
+  Estimated means, medians, modes, and percentiles
+  Sample and estimated means
+  Latent variable distribution plots
+  Observed individual values
+  Estimated individual values
+  Estimated means and observed individual values
+  Estimated means and estimated individual values
+  Estimated overall and class-specific distributions
+
+     Beginning Time:  21:49:04
+        Ending Time:  21:49:41
+       Elapsed Time:  00:00:37
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

@@ -1,0 +1,91 @@
+[[init]]
+iterators = outcome model classes resvar;
+step = "lcga";
+outcome = 1:2;
+model = 1:2;
+classes = 1:4;
+resvar = 1;
+datfileDir = "Z:/mplusautomationtutorial/datfiles/";
+
+outcomeName#outcome = MMSE CESD;
+
+outcomeName_0#outcome = MMSE_0 CESD_0;
+outcomeName_1#outcome = MMSE_1 CESD_1;
+outcomeName_2#outcome = MMSE_2 CESD_2;
+outcomeName_3#outcome = MMSE_3 CESD_3;
+outcomeName_4#outcome = MMSE_4 CESD_4;
+outcomeName_5#outcome = MMSE_5 CESD_5;
+outcomeName_6#outcome = MMSE_6 CESD_6;
+outcomeName_7#outcome = MMSE_7 CESD_7;
+outcomeName_8#outcome = MMSE_8 CESD_8;
+outcomeName_9#outcome = MMSE_9 CESD_9;
+
+modelName#model = "LCGA2 - unconditional quadratic model - iq@0" "LCGA2 - unconditional quadratic model - sq@0";
+modelLatentIntercept#model = "i" "i";
+modelLatentLinearSlope#model = "s" "s";
+modelLatentQuadraticSlope#model = "q" "q";
+modelIatzero#model = "@0" "";
+modelSatzero#model = "@0" "@0";
+modelQatzero#model = "@0" "@0";
+
+title#resvar = "residuals UNconstrained";
+value#resvar = "";
+
+outputDirectory = "Z:/mplusautomationtutorial/in-outputfiles/[[step]]/";
+filename="[[outcomeName#outcome]]-[[modelName#model]] -[[classes]] classes-[[title#resvar]].inp";
+[[/init]]
+
+TITLE: [[outcomeName#outcome]]-[[modelName#model]]-[[classes]] classes-[[title#resvar]]
+DATA: FILE IS "[[datfileDir]]pq_mmse_cesd.dat";
+ANALYSIS: 
+type=mixture;
+starts=100 20;
+estimator=MLR;
+VARIABLE:   NAMES ARE   ID 
+MMSE_0 MMSE_1 MMSE_2 MMSE_3 MMSE_4 MMSE_5 MMSE_6 MMSE_7 MMSE_8  
+CESD_0 CESD_1 CESD_2 CESD_3 CESD_4 CESD_5 CESD_6 CESD_7 CESD_8;
+CLASSES = c([[classes]]);
+
+MISSING ARE .;
+
+USEVARIABLES ARE [[outcomeName_0#outcome]] [[outcomeName_1#outcome]] [[outcomeName_2#outcome]] 
+    [[outcomeName_3#outcome]] [[outcomeName_4#outcome]] [[outcomeName_5#outcome]]
+    [[outcomeName_6#outcome]] [[outcomeName_7#outcome]] [[outcomeName_8#outcome]];
+MODEL:
+%overall%
+    [[modelLatentIntercept#model]] [[modelLatentLinearSlope#model]] [[modelLatentQuadraticSlope#model]]| 
+    [[outcomeName_0#outcome]]@0 [[outcomeName_1#outcome]]@1 [[outcomeName_2#outcome]]@2 
+    [[outcomeName_3#outcome]]@3 [[outcomeName_4#outcome]]@4 [[outcomeName_5#outcome]]@5
+    [[outcomeName_6#outcome]]@6 [[outcomeName_7#outcome]]@7 [[outcomeName_8#outcome]]@8;
+    [[outcomeName_0#outcome]][[value#resvar]]; 
+    [[outcomeName_1#outcome]][[value#resvar]]; 
+    [[outcomeName_2#outcome]][[value#resvar]]; 
+    [[outcomeName_3#outcome]][[value#resvar]];
+    [[outcomeName_4#outcome]][[value#resvar]];
+    [[outcomeName_5#outcome]][[value#resvar]];
+    [[outcomeName_6#outcome]][[value#resvar]];
+    [[outcomeName_7#outcome]][[value#resvar]];
+    [[outcomeName_8#outcome]][[value#resvar]];
+  [[modelLatentIntercept#model]][[modelIatzero#model]];
+  [[modelLatentLinearSlope#model]][[modelSatzero#model]];
+  [[modelLatentQuadraticSlope#model]][[modelQatzero#model]];
+%c#1%
+  [[[modelLatentIntercept#model]] [[modelLatentLinearSlope#model]] [[modelLatentQuadraticSlope#model]]];
+[[classes > 1]]
+%c#2%
+  [[[modelLatentIntercept#model]] [[modelLatentLinearSlope#model]] [[modelLatentQuadraticSlope#model]]];
+[[/classes > 1]]
+[[classes > 2]]
+%c#3%
+  [[[modelLatentIntercept#model]] [[modelLatentLinearSlope#model]] [[modelLatentQuadraticSlope#model]]];
+[[/classes > 2]]
+[[classes > 3]]
+%c#4%
+  [[[modelLatentIntercept#model]] [[modelLatentLinearSlope#model]] [[modelLatentQuadraticSlope#model]]];
+[[/classes > 3]]
+
+PLOT:
+    Type = PLOT3;
+    Series =  [[outcomeName_0#outcome]] (0) [[outcomeName_1#outcome]] (1) [[outcomeName_2#outcome]] (2) [[outcomeName_3#outcome]] (3) 
+    [[outcomeName_4#outcome]] (4) [[outcomeName_5#outcome]] (5) [[outcomeName_6#outcome]] (6) [[outcomeName_7#outcome]] (7);
+OUTPUT: TECH11 TECH14;
